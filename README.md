@@ -1,1 +1,1 @@
-# WeChess
+# WeChessWeChess frontend
