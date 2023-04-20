@@ -16,7 +16,7 @@ class Tile {
             // case where the function caller wants assign a new piece on this square
             this.currentPiece = newPiece
             newPiece.setSquare(this)
-        } else if (this.getPieceIdOnThisSquare() != newPiece.id && this.currentPiece.color != newPiece.color) {
+        } else if (this.getPieceIdOnThisTile() != newPiece.id && this.currentPiece.color != newPiece.color) {
             // case where the function caller wants to change the piece on this square. (only different color allowed)
             console.log("capture!")
             this.currentPiece = newPiece
@@ -34,7 +34,7 @@ class Tile {
         return this.currentPiece 
     }
 
-    getPieceIdOnThisSquare() {
+    getPieceIdOnThisTile() {
         if (this.currentPiece === null) {
             return "empty"
         }
@@ -50,7 +50,7 @@ class Tile {
     }
 
     getCanvasCoord() {
-        return this.canvasCoordinate
+        return this.coordinate
     }
 }
 

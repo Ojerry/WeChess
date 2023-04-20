@@ -1,12 +1,14 @@
 import React from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
+import { useSelector } from 'react-redux';
+import { selectBoardSize } from '../../feature/board/boardSlice';
 
 const Piece = (props) => {
+    const boardSize = useSelector(selectBoardSize)
     const playerColor = props.isWhite ? 0 : 1;
     const [image] = useImage(props.imgurls[playerColor])
     const isDragged = props.id === props.draggedPieceTargetId
-
     const pieceCanBeMovedPlayer =  props.isWhite === props.thisPlayersColorIsWhite
     const isItThatPlayersTurn = props.playerTurnToMoveIsWhite === props.thisPlayersColorIsWhite
 
@@ -16,11 +18,11 @@ const Piece = (props) => {
     return(
         <Image
             image = {image}
-            x = {props.x - 90}
-            y = {props.y - 90}
+            x = {props.x - (boardSize.size / 8)}
+            y = {props.y - (boardSize.size / 8)}
             draggable = {pieceCanBeMovedPlayer && isItThatPlayersTurn}
-            width = {isDragged ? 75 : 60}
-            height = {isDragged ? 75 : 60}
+            width = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
+            height = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
             onDragStart = {props.onDragStart}
             onDragEnd = {props.onDragEnd}
             fill = {(thisWhiteKingInCheck && "red") || (thisBlackKingInCheck && "red")}
