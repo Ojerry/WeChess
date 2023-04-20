@@ -53,3 +53,5 @@ class Tile {
         return this.canvasCoordinate
     }
 }
+
+export default Tile
