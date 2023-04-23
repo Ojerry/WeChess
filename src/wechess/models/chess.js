@@ -78,6 +78,7 @@ class Game{
 
         // Check for valid move
         const isPromotion = this.isPawnPromotion(to, pieceId[1])
+        console.log(to, to2D)
         const moveAttempt = !isPromotion ? this.chess.move({
             from: this.toChessMove([x, y], to2D),
             to: this.toChessMove(to, to2D),
@@ -132,13 +133,15 @@ class Game{
         } else {
             return reassign
         }
-        const checkMate = this.chess.in_checkmate() ? " has been checkmated" : " has not been checkmated"
+        const checkMate = this.chess.isCheckmate() ? " has been checkmated" : " has not been checkmated"
+        // const checkMate = this.chess.in_checkmate() ? " has been checkmated" : " has not been checkmated"
+        // const checkMate = false
         console.log(this.chess.turn() + checkMate)
         if (checkMate === " has been checkmated") {
             return this.chess.turn() + checkMate
         }
         // changes the fill color of the opponent's king that is in check
-        const check = this.chess.in_check() ? " is in check" : " is not in check"
+        const check = this.chess.inCheck() ? " is in check" : " is not in check"
         console.log(this.chess.turn() + check)
         if (check === " is in check") {
             return this.chess.turn() + check
@@ -216,7 +219,8 @@ class Game{
 
     toChessMove(finalPosition, to2D) {
         
-        const coord = (this.boardSize / 8) + ((this.boardSize / 8) / 6)
+        // const coord = (this.boardSize / 8) + ((this.boardSize / 8) / 6)
+        const coord = (this.boardSize / 8)
         let move 
         // if bugs change number after ">" to 100
         if (finalPosition[0] > coord) {

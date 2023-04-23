@@ -3,7 +3,7 @@ class Tile {
         this.x = x;
         this.y = y;
         this.currentPiece = currentPiece
-        this.coordinate = canvasCoordinate;
+        this.canvasCoord = canvasCoordinate;
     }
     setPiece(newPiece) {
         if (newPiece === null && this.currentPiece === null) {
@@ -50,7 +50,7 @@ class Tile {
     }
 
     getCanvasCoord() {
-        return this.coordinate
+        return this.canvasCoord
     }
 }
 

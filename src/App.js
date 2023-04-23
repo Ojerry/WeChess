@@ -6,7 +6,10 @@ function App() {
   return (
     <div className="App">
       <h1>WeChess</h1>
-      <Chessgameui color="white"/>
+      <div style={{display: "flex", justifyContent: 'center',}}>
+        <Chessgameui color={true}/>
+      </div>
+      
     </div>
   );
 }
