@@ -1,14 +1,21 @@
 import './App.css';
 import Chessgameui from './wechess/ui/chessgameui';
+import Home from './pages/Home';
+import ChooseName from './pages/ChooseName';
+import Room from './pages/Room';
+
 
 function App() {
 
   return (
     <div className="App">
-      <h1>WeChess</h1>
-      <div style={{display: "flex", justifyContent: 'center',}}>
+      {/* <Home /> */}
+      {/* <div style={{display: "flex", justifyContent: 'center',}}>
         <Chessgameui color={true}/>
-      </div>
+      </div> */}
+      {/* <ChooseName /> */}
+      <Room />
+      
       
     </div>
   );

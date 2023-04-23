@@ -1,0 +1,35 @@
+.home{
+
+}
+.right-div{
+    padding: 50px;
+}
+.home p{
+    font-size: 22px;
+    color: #fff;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
+.home button{
+    margin: 0 10px;
+    /* font-family: "Lobster", cursive; */
+}
+
+.choosename{
+    color: "#fffff",
+}
+.choosename .typename-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.choosename .typename-div label{
+    color: #fff;
+}
+.room{
+    text-align: center;
+}
+.room input {
+    width: 70%;
+}
