@@ -3,9 +3,11 @@ import Header from '../component/Header'
 import { useSelector } from 'react-redux'
 import { selectBoardSize } from '../feature/board/boardSlice'
 import './Home.css'
+import { useNavigate } from 'react-router-dom'
 
 
 const Home = () => {
+    const navigate = useNavigate()
     const boardSize = useSelector(selectBoardSize)
   return (
     <div className='home'>
@@ -16,7 +18,7 @@ const Home = () => {
             </div>
             <div className='right-div'>
                 <p>Welcome to WeChess</p>
-                <button>Play as Guest</button>
+                <button onClick={() => navigate('/create-game')}>Play as Guest</button>
                 <button>LogIn</button>
                 <p>Or</p>
                 <button>Sign Up</button>

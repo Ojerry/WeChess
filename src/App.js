@@ -1,22 +1,19 @@
 import './App.css';
-import Chessgameui from './wechess/ui/chessgameui';
 import Home from './pages/Home';
 import ChooseName from './pages/ChooseName';
 import Room from './pages/Room';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-
   return (
     <div className="App">
-      {/* <Home /> */}
-      {/* <div style={{display: "flex", justifyContent: 'center',}}>
-        <Chessgameui color={true}/>
-      </div> */}
-      {/* <ChooseName /> */}
-      <Room />
-      
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='create-game' element={<ChooseName />} />
+          <Route path=':roomId' element={<Room />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

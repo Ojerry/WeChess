@@ -5,12 +5,14 @@ export const userInfoSlice = createSlice({
     initialState: {
         user: {
             redirectedHere: false,
-            userName: ''
+            userName: '',
+            roomCreator: false
         }
     },
     reducers: {
         setUserInfo: (state, action) => {
-            state.board = action.payload
+            state.user = action.payload
+            console.log(state.user)
         },
     },
 });

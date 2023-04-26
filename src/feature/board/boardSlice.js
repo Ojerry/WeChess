@@ -4,7 +4,7 @@ export const boardSlice = createSlice({
     name:"board",
     initialState: {
         board: {
-            size: 500,
+            size: 720,
         }
     },
     reducers: {

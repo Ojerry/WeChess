@@ -15,25 +15,17 @@ const Piece = (props) => {
 
     const thisWhiteKingInCheck = props.id === "wk1" && props.whiteKingInCheck
     const thisBlackKingInCheck = props.id === "bk1" && props.blackKingInCheck
-    // console.log("start")
-    // console.log(image ? image : "")
-    // console.log(props.x - (boardSize.size / 8))
-    // console.log(props.y - (boardSize.size / 8))
-    // console.log(pieceCanBeMovedPlayer && isItThatPlayersTurn)
-    // console.log(isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12))
-    // console.log(isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12))
-    // console.log(props.onDragStart)
-    // console.log(props.onDragEnd)
-    // console.log((thisWhiteKingInCheck && "red") || (thisBlackKingInCheck && "red"))
-    // console.log(props.id)
-    // console.log("End")
+//   console.log(pieceCanBeMovedPlayer && isItThatPlayersTurn)
+// console.log(props.playerTurnToMoveIsWhite)
+// console.log(props.playerTurnToMoveIsWhite)
+// console.log(props.playerTurnToMoveIsWhite)
     return(
         <Image
-            image = {image ? image : ""}
+            image = {image}
             x = {props.x - (boardSize.size / 8)}
             y = {props.y - (boardSize.size / 8)}
-            // draggable = {pieceCanBeMovedPlayer && isItThatPlayersTurn}
-            draggable={true}
+            draggable = {pieceCanBeMovedPlayer && isItThatPlayersTurn}
+            // draggable={true}
             width = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
             height = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
             onDragStart = {props.onDragStart}
