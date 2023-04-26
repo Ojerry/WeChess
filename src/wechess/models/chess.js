@@ -46,6 +46,7 @@ class Game{
     }
 
     movePiece(pieceId, to, isMyMove){
+        console.log(isMyMove)
         const tileSize = this.boardSize / 8
         const coord = (this.boardSize / 8) + ((this.boardSize / 8) / 6)
         const coordFigures = [coord, coord + tileSize, coord + tileSize * 2, coord + tileSize * 3, coord + tileSize * 4, coord + tileSize * 5, coord + tileSize * 6, coord + tileSize * 7]
