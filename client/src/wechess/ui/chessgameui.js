@@ -20,7 +20,9 @@ const Chessgameui = (props) => {
         whiteKingInCheck: false, 
         blackKingInCheck: false
     })
-
+    useEffect(() => {
+        console.log("rerender")
+    },[state])
     useEffect(() => {
         // register event listeners
         socket.on('opponent move', move => {
@@ -43,9 +45,7 @@ const Chessgameui = (props) => {
     const endDragging = (e) => {
         const currentGame = state.gameState
         const currentBoard = currentGame.getBoard()
-        // const finalPosition = inferCoord(e.target.x() + (boardSize.size / 8), e.target.y() + (boardSize.size / 8), currentBoard)
-        
-        const finalPosition = inferCoord(e.target.x() + 90, e.target.y() + 90, currentBoard)
+        const finalPosition = inferCoord(e.target.x() + (boardSize.size / 8), e.target.y() + (boardSize.size / 8), currentBoard)
         const selectedId = state.draggedPieceTargetId
         movePiece(selectedId, finalPosition, currentGame, true)
     }
@@ -80,6 +80,7 @@ const Chessgameui = (props) => {
 
         setState({...state,
             gameState: oldGS,
+            draggedPieceTargetId: "",
         })
     }
 

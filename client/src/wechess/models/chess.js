@@ -78,19 +78,26 @@ class Game{
         }
 
         // Check for valid move
+        var moveAttempt = null
         const isPromotion = this.isPawnPromotion(to, pieceId[1])
+        try{
+            moveAttempt = !isPromotion ? this.chess.move({
+                from: this.toChessMove([x, y], to2D),
+                to: this.toChessMove(to, to2D),
+                piece: pieceId[1]}) 
+            : 
+            this.chess.move({
+                from: this.toChessMove([x, y], to2D),
+                to: this.toChessMove(to, to2D),
+                piece: pieceId[1],
+                promotion: 'q'
+            })
+        } catch(err){
+            console.log(err)
+        }
+        
         console.log(to, to2D)
-        const moveAttempt = !isPromotion ? this.chess.move({
-            from: this.toChessMove([x, y], to2D),
-            to: this.toChessMove(to, to2D),
-            piece: pieceId[1]}) 
-        : 
-        this.chess.move({
-            from: this.toChessMove([x, y], to2D),
-            to: this.toChessMove(to, to2D),
-            piece: pieceId[1],
-            promotion: 'q'
-        })
+        
         console.log(moveAttempt)
         if (moveAttempt === null) {
             return "invalid move"

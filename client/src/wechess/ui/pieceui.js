@@ -9,23 +9,18 @@ const Piece = (props) => {
     const playerColor = props.isWhite ? 0 : 1;
     const [image] = useImage(props.imgurls[playerColor])
     const isDragged = props.id === props.draggedPieceTargetId
+    console.log(isDragged)
     const pieceCanBeMovedPlayer =  props.isWhite === props.thisPlayersColorIsWhite
-    
     const isItThatPlayersTurn = props.playerTurnToMoveIsWhite === props.thisPlayersColorIsWhite
-
     const thisWhiteKingInCheck = props.id === "wk1" && props.whiteKingInCheck
     const thisBlackKingInCheck = props.id === "bk1" && props.blackKingInCheck
-//   console.log(pieceCanBeMovedPlayer && isItThatPlayersTurn)
-// console.log(props.playerTurnToMoveIsWhite)
-// console.log(props.playerTurnToMoveIsWhite)
-// console.log(props.playerTurnToMoveIsWhite)
+
     return(
         <Image
             image = {image}
             x = {props.x - (boardSize.size / 8)}
             y = {props.y - (boardSize.size / 8)}
             draggable = {pieceCanBeMovedPlayer && isItThatPlayersTurn}
-            // draggable={true}
             width = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
             height = {isDragged ? (boardSize.size / 9.6) : (boardSize.size / 12)}
             onDragStart = {props.onDragStart}
