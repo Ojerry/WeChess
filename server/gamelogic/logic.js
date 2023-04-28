@@ -1,6 +1,6 @@
 
 /**
- * Here is where we should register event listeners and emitters. 
+ * We register event listeners and emitters here. 
  */
 
 var io

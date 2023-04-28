@@ -74,15 +74,19 @@ const Chessgameui = (props) => {
         // temporarily remove the piece that was just moved
         tmpGS.setBoard(tmpBoard)
 
-        setState({...state,
-            gameState: tmpGS,
-            draggedPieceTargetId: "",
-        })
+        // setState({...state,
+        //     gameState: tmpGS,
+        //     draggedPieceTargetId: "",
+        // })
 
-        setState({...state,
-            gameState: oldGS,
-            draggedPieceTargetId: "",
-        })
+
+        // setState({...state,
+        //     gameState: oldGS,
+        //     draggedPieceTargetId: "",
+        // })
+        setState((state) => ( { ...state,gameState: tmpGS, draggedPieceTargetId:""}))
+
+        setState((state) => ({...state, gameState: oldGS}))
     }
 
     const movePiece = (selectedId, finalPosition, currentGame, isMyMove) => {
@@ -271,13 +275,13 @@ const GameWrapper = (props) => {
             {
                 opponentDidJoinTheGame ? (
                     <div>
-                        <h4>Opponent: {opponentUserName}</h4>
+                        <h4 style={{fontFamily:'Amatic SC', color:"white", fontSize:"26px"}} >Opponent: {opponentUserName}</h4>
                         <div style={{display:"flex" ,borderColor:"black", border:"2px solid black"}}>
                             <Chessgameui gameId={roomId} color={props.color} />
                             <Chat gameId={roomId} userName={props.myUserName} />
                         </div>
                         
-                        <h4> You: {props.myUserName} </h4>
+                        <h4 style={{fontFamily:'Amatic SC', color:"white", fontSize:"26px"}}> You: {props.myUserName} </h4>
                     </div>
                     
                 ): gameSessionDoesNotExist ? (

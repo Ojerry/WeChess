@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './Chat.css'
 import ScrollToBottom from 'react-scroll-to-bottom'
 import ReactEmoji from 'react-emoji'
-import { useSelector } from 'react-redux'
-import { selectUserInfo } from '../feature/userInfo/userInfoSlice'
 const socket = require('../connection/socket').socket
 
 const Chat = ({gameId, userName}) => {
   const [name, setName] = useState(userName)
-  const [room, setRoom] = useState('')
-  const [users, setUsers] = useState('')
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
     useEffect(() => {

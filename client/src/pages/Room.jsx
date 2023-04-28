@@ -3,7 +3,6 @@ import Header from '../component/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUserInfo, setUserInfo } from '../feature/userInfo/userInfoSlice'
 import { useParams } from 'react-router-dom'
-// import { socket } from '../connection/socket'
 import ChessGame from '../wechess/ui/chessgameui'
 const socket = require('../connection/socket').socket
 
@@ -12,7 +11,7 @@ const Room = (props) => {
     const {userName, redirectedHere, roomCreator} = useSelector(selectUserInfo)
     const secondPlayer = userName === '' && roomCreator === false
     console.log(userName, redirectedHere, roomCreator)
-    const [copied, setCopied] = useState(false)
+    // const [copied, setCopied] = useState(false)
     useEffect(() => {
 
       if(!secondPlayer){
@@ -25,14 +24,14 @@ const Room = (props) => {
       }
     },[])
 
-    const copyText = () => {
-      setCopied(true)
-      setTimeout(() => {
-        setCopied(false)
-      }, 4000)
-      const text = "localhost:3000/"+roomId
-      navigator.clipboard.writeText(text);
-    }
+    // const copyText = () => {
+    //   setCopied(true)
+    //   setTimeout(() => {
+    //     setCopied(false)
+    //   }, 4000)
+    //   const text = "localhost:3000/"+roomId
+    //   navigator.clipboard.writeText(text);
+    // }
   return (
     <div className='room'>
         <Header />

@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux'
 import { selectUserInfo, setUserInfo } from '../feature/userInfo/userInfoSlice'
 import {v4 as uuid} from 'uuid'
 import { useSelector } from 'react-redux'
-// import { socket } from '../connection/socket'
 const socket = require('../connection/socket').socket
 
 const ChooseName = () => {
