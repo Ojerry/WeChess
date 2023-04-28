@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = 'https://wechess-be.onrender.com';
 
 const socket = io(BACKEND_URL, {
     withCredentials: true,

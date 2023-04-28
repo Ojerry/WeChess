@@ -21,7 +21,7 @@ const server = http.createServer(app)
 const io = socketio(server, {
     cors: {
         credentials: true,
-        origin: 'http://localhost:3000'
+        origin: 'https://wechess.onrender.com'
     }
 })
 
