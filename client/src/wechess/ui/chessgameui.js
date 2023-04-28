@@ -9,6 +9,7 @@ import Tile from '../models/tile'
 // import { socket } from '../../connection/socket'
 import { useParams } from 'react-router-dom'
 import { selectUserInfo } from '../../feature/userInfo/userInfoSlice'
+import Chat from '../../chat/Chat'
 const socket = require('../../connection/socket').socket
 
 const Chessgameui = (props) => {
@@ -271,8 +272,9 @@ const GameWrapper = (props) => {
                 opponentDidJoinTheGame ? (
                     <div>
                         <h4>Opponent: {opponentUserName}</h4>
-                        <div style={{borderColor:"black", border:"2px solid black"}}>
+                        <div style={{display:"flex" ,borderColor:"black", border:"2px solid black"}}>
                             <Chessgameui gameId={roomId} color={props.color} />
+                            <Chat gameId={roomId} userName={props.myUserName} />
                         </div>
                         
                         <h4> You: {props.myUserName} </h4>
